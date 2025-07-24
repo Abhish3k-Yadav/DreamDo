@@ -1,29 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DreamDo - Todo App</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="background-pattern"></div>
-
-  <div class="container glass">
-    <h1 class="gradient-text">DreamDo - Your Day, Your Way</h1>
-    <p class="quote" id="quote"></p>
-
-    <div class="controls">
-      <input id="taskInput" placeholder="What's your next move? ✍️">
-      <button id="addBtn">➕</button>
-      <button id="clearAll">🧹</button>
-      <button id="toggleMode">🌙</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamDo - Professional Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <div class="floating-shapes">
+      <div class="shape shape1"></div>
+      <div class="shape shape2"></div>
+      <div class="shape shape3"></div>
+      <div class="shape shape4"></div>
     </div>
 
-    <p id="taskCount">0 missions to conquer</p>
-    <ul id="todoList"></ul>
-  </div>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="logo-section">
+          <div class="logo-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="logo-text">
+            <h1 class="app-title">DreamDo</h1>
+            <p class="app-subtitle">Professional Task Manager</p>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button id="toggleMode" class="icon-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button id="clearAll" class="icon-btn" title="Clear All Tasks">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </header>
 
-  <script src="script.js"></script>
-</body>
+      <div class="main-container glass">
+        <div class="quote-section">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <p class="quote" id="quote"></p>
+        </div>
+
+        <div class="stats-section">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="totalTasks">0</span>
+              <span class="stat-label">Total Tasks</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon completed">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="completedTasks">0</span>
+              <span class="stat-label">Completed</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon pending">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="pendingTasks">0</span>
+              <span class="stat-label">Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <div class="input-container">
+            <i class="fas fa-plus input-icon"></i>
+            <input
+              id="taskInput"
+              placeholder="Add a new task..."
+              autocomplete="off"
+            />
+            <button id="addBtn" class="add-btn">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">
+              <i class="fas fa-list"></i>
+              All Tasks
+            </button>
+            <button class="filter-tab" data-filter="pending">
+              <i class="fas fa-clock"></i>
+              Pending
+            </button>
+            <button class="filter-tab" data-filter="completed">
+              <i class="fas fa-check"></i>
+              Completed
+            </button>
+          </div>
+        </div>
+
+        <div class="tasks-section">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h3>No tasks yet</h3>
+            <p>Add your first task to get started!</p>
+          </div>
+          <ul id="todoList" class="task-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
